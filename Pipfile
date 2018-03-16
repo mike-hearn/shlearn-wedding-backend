@@ -1,0 +1,29 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+django = "*"
+djangorestframework = "*"
+djangorestframework-jsonapi = "*"
+fuzzywuzzy = "*"
+
+
+[dev-packages]
+
+django-extensions = "*"
+pytest = "*"
+ipdb = "*"
+pytest-watch = "*"
+ipython = "*"
+neovim = "*"
+jedi = "*"
+
+
+[requires]
+
+python_version = "3.6"
