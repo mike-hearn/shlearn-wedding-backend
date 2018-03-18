@@ -11,6 +11,7 @@ django = "*"
 djangorestframework = "*"
 djangorestframework-jsonapi = "*"
 fuzzywuzzy = "*"
+django-cors-headers = "*"
 
 
 [dev-packages]
@@ -22,6 +23,9 @@ pytest-watch = "*"
 ipython = "*"
 neovim = "*"
 jedi = "*"
+"autopep8" = "*"
+yapf = "*"
+isort = "*"
 
 
 [requires]
