@@ -38,4 +38,6 @@ class Person(models.Model):
         resource_name = "people"
 
     def __str__(self):
-        return "{} {} {}".format(self.title, self.first_name, self.last_name)
+        if self.first_name:
+            return "{} {}".format(self.first_name, self.last_name)
+        return self.internal_name
