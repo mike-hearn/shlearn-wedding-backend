@@ -12,6 +12,7 @@ djangorestframework = "*"
 djangorestframework-jsonapi = "*"
 fuzzywuzzy = "*"
 django-cors-headers = "*"
+python-levenshtein = "*"
 
 
 [dev-packages]
