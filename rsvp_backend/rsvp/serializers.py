@@ -8,7 +8,7 @@ class PersonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Person
         fields = ('id', 'title', 'first_name', 'last_name', 'is_unknown_guest',
-                  'attendance', 'food_choice', 'invitation')
+                  'is_plus_one', 'attendance', 'food_choice', 'invitation')
 
     class JSONAPIMeta:
         included_resources = ['invitation']
