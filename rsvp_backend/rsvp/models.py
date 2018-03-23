@@ -29,6 +29,7 @@ class Person(models.Model):
     last_name = models.CharField(max_length=200, blank=True)
     internal_name = models.CharField(max_length=200, blank=True)
     is_unknown_guest = models.BooleanField(default=False)
+    is_plus_one = models.BooleanField(default=False)
     attendance = models.CharField(max_length=200, blank=True)
     food_choice = models.CharField(max_length=200, blank=True)
     invitation = models.ForeignKey(

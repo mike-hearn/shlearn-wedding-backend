@@ -46,6 +46,7 @@ class Command(BaseCommand):
                 if "Guest" in invite_names[1]:
                     p2 = Person(
                         is_unknown_guest=True,
+                        is_plus_one=True,
                         invitation=invitation,
                         internal_name="Guest for {}".format(invite_names[0]))
                     p2.save()

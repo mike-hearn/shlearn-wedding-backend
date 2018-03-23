@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['desktop.mikehearn.com', ]
+ALLOWED_HOSTS = ['localhost', 'desktop.mikehearn.com', ]
 
 
 # Application definition
