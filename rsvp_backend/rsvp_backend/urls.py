@@ -11,5 +11,6 @@ router.register(r'invitations', views.InvitationViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    path('admin/reset/', views.reset_database),
     path('admin/', admin.site.urls),
 ]

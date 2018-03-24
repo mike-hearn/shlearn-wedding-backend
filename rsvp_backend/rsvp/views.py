@@ -1,4 +1,7 @@
 from django.db.models import Q
+from django.core.management import call_command
+from django.conf import settings
+from django.http import HttpResponse, HttpResponseNotFound
 
 from fuzzywuzzy import process
 from rest_framework import viewsets
@@ -45,3 +48,15 @@ class InvitationViewSet(viewsets.ModelViewSet):
     resource_name = 'invitations'
     queryset = Invitation.objects.all()
     serializer_class = InvitationSerializer
+
+
+def reset_database(request):
+    """View intended to be used for testing only. Resets the database to a
+    consistent state."""
+    if settings.DEBUG:
+        call_command("flush", "--no-input")
+        call_command("loaddata", "guests")
+        return HttpResponse("<h1>Database reset to base state.</h1>")
+    else:
+        return HttpResponseNotFound()
+
