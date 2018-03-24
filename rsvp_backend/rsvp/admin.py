@@ -5,7 +5,18 @@ from rsvp.models import Invitation, Person
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('__str__', 'internal_name', 'friday', 'saturday')
+    ordering = ('first_name', )
+
+    def friday(self, obj):
+        if 'Friday' in obj.attendance:
+            return '✅'
+        else:
+            return '-'
+
+    def saturday(self, obj):
+        if 'Saturday' in obj.attendance:
+            return '✅ '
 
 
 class PersonInline(admin.StackedInline):
