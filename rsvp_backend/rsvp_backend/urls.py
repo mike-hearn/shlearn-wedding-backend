@@ -10,7 +10,7 @@ router.register(r'people', views.PersonViewSet)
 router.register(r'invitations', views.InvitationViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     path('admin/reset/', views.reset_database),
     path('admin/', admin.site.urls),
 ]
