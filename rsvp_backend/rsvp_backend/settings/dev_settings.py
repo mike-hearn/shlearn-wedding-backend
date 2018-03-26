@@ -2,17 +2,19 @@ import os
 
 from .base_settings import *
 
-ALLOWED_HOSTS = [
-    'localhost',
-    'desktop.mikehearn.com',
-]
+ALLOWED_HOSTS = ['shleyandhearn.mikehearn.com', 'shleyandhearn.com',
+                 'www.shleyandhearn.com', 'localhost', 'desktop.mikehearn.com']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'db',
+        'PORT': '5432'
     }
 }
 
