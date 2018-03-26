@@ -13,6 +13,7 @@ djangorestframework-jsonapi = "*"
 fuzzywuzzy = "*"
 django-cors-headers = "*"
 python-levenshtein = "*"
+uwsgi = "*"
 
 
 [dev-packages]
