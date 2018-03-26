@@ -21,7 +21,7 @@ services:
       labels:
         - "traefik.backend=httpbackend"
         - "traefik.port=8000"
-        - "traefik.frontend.rule=PathPrefixStrip:/api/"
+        - "traefik.frontend.rule=PathPrefix:/api,/admin"
         - "traefik.docker.network=traefik_public"
   db:
     image: postgres

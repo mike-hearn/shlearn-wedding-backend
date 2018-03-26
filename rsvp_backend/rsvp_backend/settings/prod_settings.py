@@ -2,7 +2,7 @@ import os
 
 from .base_settings import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['shleyandhearn.mikehearn.com', 'shleyandhearn.com',
                  'www.shleyandhearn.com', 'localhost']
