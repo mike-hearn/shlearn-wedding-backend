@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  web:
+    image: shlearn-backend
+    networks:
+      - traefik_public
+    environment:
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-rsvp_backend.settings.prod_settings}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+    command: >
+      /bin/bash -c
+      "pipenv run uwsgi
+      --http :8000
+      --chdir $$(pwd)/rsvp_backend
+      --module rsvp_backend.wsgi
+      --env DJANGO_SETTINGS_MODULE=$$DJANGO_SETTINGS_MODULE
+      --virtualenv $$(pipenv --venv)"
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.backend=httpbackend"
+        - "traefik.port=8000"
+        - "traefik.frontend.rule=PathPrefixStrip:/api/"
+        - "traefik.docker.network=traefik_public"
+
+networks:
+  traefik_public:
+    external: true
