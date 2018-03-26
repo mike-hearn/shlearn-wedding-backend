@@ -1,5 +1,7 @@
-.git
+*.sqlite3
 .env
+.git
 Dockerfile
+db/
 docker-compose.yml
 tags

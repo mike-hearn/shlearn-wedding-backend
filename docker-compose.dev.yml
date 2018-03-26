@@ -1,13 +1,17 @@
 version: "3.3"
 services:
-  web:
+  web_dev:
     image: mikehearn/shlearn-wedding-backend:latest
     networks:
       - traefik_public
       - db_overlay
     environment:
-      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-rsvp_backend.settings.prod_settings}
+      - DJANGO_SETTINGS_MODULE=rsvp_backend.settings.dev_settings
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+    volumes:
+      - type: bind
+        source: ./rsvp_backend
+        target: /home/user/app/rsvp_backend
     command: >
       /bin/bash -c
       "pipenv run uwsgi
@@ -21,7 +25,7 @@ services:
       labels:
         - "traefik.backend=httpbackend"
         - "traefik.port=8000"
-        - "traefik.frontend.rule=PathPrefixStrip:/api/"
+        - "traefik.frontend.rule=PathPrefix:/api/"
         - "traefik.docker.network=traefik_public"
   db:
     image: postgres
