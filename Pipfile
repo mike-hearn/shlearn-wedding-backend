@@ -14,6 +14,7 @@ fuzzywuzzy = "*"
 django-cors-headers = "*"
 python-levenshtein = "*"
 uwsgi = "*"
+"psycopg2" = "*"
 
 
 [dev-packages]
