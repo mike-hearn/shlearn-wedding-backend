@@ -6,10 +6,12 @@ RUN pip install pipenv
 RUN adduser user --home=/home/user/
 USER user
 
-ADD . /home/user/app/
+ADD Pipfile Pipfile.lock /home/user/app/
 WORKDIR /home/user/app/
 
 RUN pipenv install --dev
+
+ADD . /home/user/app
 
 ENV DJANGO_SETTINGS_MODULE rsvp_backend.settings.dev_settings
 
